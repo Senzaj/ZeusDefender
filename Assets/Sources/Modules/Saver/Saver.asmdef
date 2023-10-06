@@ -1,0 +1,18 @@
+{
+    "name": "Saver",
+    "rootNamespace": "",
+    "references": [
+        "GUID:529cd65decbb8c446b2b5f505e5cb051",
+        "GUID:4b28bb510adf65f419d5ecc51052a50c",
+        "GUID:d611736191ff9c34abcb4bde0a162ea1"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

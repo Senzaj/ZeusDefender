@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MainScenes/MainMenu.unity
+    guid: d229620920ed58e40baa75459256bcbf
+  - enabled: 1
+    path: Assets/Scenes/MainScenes/GameScene.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/NewScenes/5.unity
+    guid: 148d1db7499df4349a1b2805c2869b3e
+  - enabled: 1
+    path: Assets/Scenes/NewScenes/64.unity
+    guid: 450399f4e4dfa62409c23b9a60a69655
+  - enabled: 1
+    path: Assets/Scenes/NewScenes/AlphaTrain 1.unity
+    guid: 07252b9a0d383bf46a54a8dff4ba32f1
+  - enabled: 1
+    path: Assets/Scenes/NewScenes/AlphaTrain 2.unity
+    guid: b56645e8c58bee24289455c388584337
+  - enabled: 1
+    path: Assets/Scenes/NewScenes/AlphaTrain.unity
+    guid: 834238c593114e84c801d25777abb1ed
+  - enabled: 1
+    path: Assets/Scenes/NewScenes/New Scene 2.unity
+    guid: b76cac1997da94a459b1094a449afd8a
+  - enabled: 1
+    path: Assets/Scenes/NewScenes/New Scene 1.unity
+    guid: dd6ef05941eb1054db8e3f911c8052b1
+  - enabled: 1
+    path: Assets/Scenes/NewScenes/New Scene 3.unity
+    guid: 89ad96a456d35144193bafc3d29cd326
+  - enabled: 1
+    path: Assets/Scenes/NewScenes/New Scene 4.unity
+    guid: 7f76b0f7342686c4dab4541cbf69ec81
+  - enabled: 1
+    path: Assets/Scenes/NewScenes/Quadrado.unity
+    guid: bdc9d0a07bec3b64ca419ae313b37251
+  - enabled: 1
+    path: Assets/Scenes/NewScenes/Quav.unity
+    guid: f64bcbba89dfd344ca178b1c19d72b38
+  - enabled: 1
+    path: Assets/Scenes/NewScenes/Training 2.unity
+    guid: 61c253a01a74ce14c80b26793849bc66
+  - enabled: 1
+    path: Assets/Scenes/NewScenes/Training 4.unity
+    guid: 0f40bfd50f39cdb4ca75b668b0789fd0
+  - enabled: 1
+    path: Assets/Scenes/NewScenes/Training.unity
+    guid: 0f8ae02ba8980774bb0521747087d0cf
+  m_configObjects: {}

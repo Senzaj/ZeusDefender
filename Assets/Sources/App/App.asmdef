@@ -1,0 +1,4 @@
+{
+	"name": "App",
+	"references":[ "GUID:d461ae5b4fc19ad4f8fd7f8b38766a96", "GUID:4b28bb510adf65f419d5ecc51052a50c", "GUID:529cd65decbb8c446b2b5f505e5cb051", "GUID:5ea728f0eca9edf4ea0d8528dab833b7" ]
+}

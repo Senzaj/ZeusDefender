@@ -1,0 +1,4 @@
+{
+	"name": "ObjectFactory",
+	"references":[ "GUID:cd0b022e2ff382e439ba4bc1a229addf", "GUID:529cd65decbb8c446b2b5f505e5cb051", "GUID:4b28bb510adf65f419d5ecc51052a50c", "GUID:269e7cb885d7d4e4ab1504705aeb0439" ]
+}
