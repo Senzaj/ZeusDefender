@@ -1,7 +1,7 @@
 using System;
+using Sources.Modules.Player.Scripts.Weapon;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Sources.Modules.UI.Scripts
@@ -9,7 +9,7 @@ namespace Sources.Modules.UI.Scripts
     public class SkinPanel : MonoBehaviour
     {
         [SerializeField] private int _index;
-        [SerializeField] private Sprite _sprite;
+        [SerializeField] private PlayerWeapon _weapon;
         [SerializeField] private int _price;
         [SerializeField] private TMP_Text _priceText;
         [SerializeField] private Button _buyButton;
@@ -20,14 +20,14 @@ namespace Sources.Modules.UI.Scripts
         [SerializeField] private bool _isBought;
         [SerializeField] private bool _isEquipped;
 
-        public event Action<SkinPanel, Sprite> SpriteChangingRequest;
-        public event Action<SkinPanel, int> BuyRequest;
+        public event Action<SkinPanel, PlayerWeapon> SpriteChangingRequest;
+        public event Action<SkinPanel, int> PurchaseRequest;
 
-        private const string EquippedText = "Equipped";
-        private const string UnequippedText = "Unquipped";
+        private const string EquippedTxt = "Equipped";
+        private const string UnequippedTxt = "Unquipped";
 
         public int Index => _index;
-        public Sprite ChangingSprite => _sprite;
+        public PlayerWeapon ChangingWeapon => _weapon;
 
         private void OnEnable()
         {
@@ -41,22 +41,22 @@ namespace Sources.Modules.UI.Scripts
                 if (_isEquipped)
                     OnEquipped();
                 else
-                    Unequip();
+                    Unequipped();
             }
             else
             {
                 ShowCanvas(_buyButtonCanvas);
                 HideCanvas(_equipButtonCanvas);
             }
-            
-            _buyButton.onClick.AddListener(TryBuy);
+
             _equipButton.onClick.AddListener(Equip);
+            _buyButton.onClick.AddListener(TryBuy);
         }
 
         private void OnDisable()
         {
-            _buyButton.onClick.RemoveListener(TryBuy);
             _equipButton.onClick.RemoveListener(Equip);
+            _buyButton.onClick.RemoveListener(TryBuy);
         }
 
         public void OnBought()
@@ -73,46 +73,37 @@ namespace Sources.Modules.UI.Scripts
             HideCanvas(_buyButtonCanvas);
             ShowCanvas(_equipButtonCanvas);
         }
-        
+
         public void OnEquipped()
         {
             _isEquipped = true;
-            _equipButtonText.text = EquippedText;
+            _equipButtonText.text = EquippedTxt;
         }
-        
-        public void Unequip()
+
+        public void Unequipped()
         {
             _isEquipped = false;
-            _equipButtonText.text = UnequippedText;
+            _equipButtonText.text = UnequippedTxt;
         }
 
-        private void TryBuy()
-        {
-            BuyRequest?.Invoke(this, _price);
-        }
+        private void SetPrice() => _priceText.text = _price.ToString();
         
-        private void Equip()
-        {
-            SpriteChangingRequest?.Invoke(this, _sprite);
-        }
+        private void TryBuy() => PurchaseRequest?.Invoke(this, _price);
 
-        private void SetPrice()
-        {
-            _priceText.text = _price.ToString();
-        }
-        
+        private void Equip() => SpriteChangingRequest?.Invoke(this, _weapon);
+
         private void ShowCanvas(CanvasGroup canvasGroup)
         {
             canvasGroup.alpha = 1;
-            canvasGroup.interactable = true;
             canvasGroup.blocksRaycasts = true;
+            canvasGroup.interactable = true;
         }
-        
+
         private void HideCanvas(CanvasGroup canvasGroup)
         {
             canvasGroup.alpha = 0;
-            canvasGroup.interactable = false;
             canvasGroup.blocksRaycasts = false;
+            canvasGroup.interactable = false;
         }
     }
 }

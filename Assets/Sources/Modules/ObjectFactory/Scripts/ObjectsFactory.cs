@@ -1,13 +1,13 @@
-using System.Collections.Generic;
-using Sources.Modules.SpawnedObject.Scripts;
 using UnityEngine;
+using System.Collections.Generic;
+using Sources.Modules.CommonMovingObject.Scripts;
 
 namespace Sources.Modules.ObjectFactory.Scripts
 {
     public class ObjectsFactory : MonoBehaviour
     {
-        [SerializeField] private CommonObject _prefab;
         [SerializeField] private int _startCapacity;
+        [SerializeField] private CommonObject _prefabForSpawn;
 
         private List<CommonObject> _objects;
         
@@ -40,7 +40,7 @@ namespace Sources.Modules.ObjectFactory.Scripts
 
         private CommonObject InitObject()
         {
-            CommonObject newObject = Instantiate(_prefab, transform);
+            CommonObject newObject = Instantiate(_prefabForSpawn, transform);
             newObject.gameObject.SetActive(false);
             _objects.Add(newObject);
             return newObject;

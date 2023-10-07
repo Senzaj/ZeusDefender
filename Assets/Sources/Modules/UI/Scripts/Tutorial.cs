@@ -1,6 +1,6 @@
-using System;
-using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine;
+using System;
 
 namespace Sources.Modules.UI.Scripts
 {
@@ -8,43 +8,39 @@ namespace Sources.Modules.UI.Scripts
     {
         [SerializeField] private CanvasGroup[] _slideCanvases;
         [SerializeField] private Button _nextButton;
-        
+
         public event Action TutorialPassed;
         public event Action OnEnabled;
 
         private int _currentSlideIndex;
-        
+
         public bool IsTutorialPassed { get; private set; }
 
         public void Init()
         {
-            GetComponent<Panel>().HideCanvasSwitcher();
-            _nextButton.onClick.AddListener(SwitchSlide);
+            GetComponent<Panel>().HideCanvasForSwitcher();
+            _nextButton.onClick.AddListener(TryShowNextSlide);
             OnEnabled?.Invoke();
         }
 
-        private void OnDisable()
-        {
-            _nextButton.onClick.RemoveListener(SwitchSlide);
-        }
+        private void OnDisable()=>
+            _nextButton.onClick.RemoveListener(TryShowNextSlide);
 
         public void Begin()
         {
             GetComponent<Panel>().TurnOnWithoutInvoke();
-            SwitchSlide();
+            TryShowNextSlide();
         }
 
-        public void OnTutorialPassed()
-        {
+        public void OnTutorialPassed() =>
             IsTutorialPassed = true;
-        }
-        
-        private void SwitchSlide()
+
+        private void TryShowNextSlide()
         {
             if (_currentSlideIndex < _slideCanvases.Length)
             {
                 HideAllCanvases();
-                ShowCanvas(_slideCanvases[_currentSlideIndex]);
+                Show(_slideCanvases[_currentSlideIndex]);
                 _currentSlideIndex++;
             }
             else
@@ -58,21 +54,21 @@ namespace Sources.Modules.UI.Scripts
         private void HideAllCanvases()
         {
             foreach (CanvasGroup canvas in _slideCanvases)
-                HideCanvas(canvas);
+                Hide(canvas);
         }
 
-        private void ShowCanvas(CanvasGroup canvasGroup)
+        private void Show(CanvasGroup canvasGroup)
         {
+            canvasGroup.blocksRaycasts = true;
             canvasGroup.alpha = 1;
             canvasGroup.interactable = true;
-            canvasGroup.blocksRaycasts = true;
         }
-        
-        private void HideCanvas(CanvasGroup canvasGroup)
+
+        private void Hide(CanvasGroup canvasGroup)
         {
+            canvasGroup.blocksRaycasts = false;
             canvasGroup.alpha = 0;
             canvasGroup.interactable = false;
-            canvasGroup.blocksRaycasts = false;
         }
     }
 }

@@ -1,18 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
+using Sources.Modules.CommonMovingObject.Scripts;
 using UnityEngine;
 
-public class Destroyer : MonoBehaviour
+namespace Sources.Modules.ObjectFactory.Scripts
 {
-    // Start is called before the first frame update
-    void Start()
+    public class Destroyer : MonoBehaviour
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.TryGetComponent(out CommonObject obj))
+                obj.gameObject.SetActive(false);
+        }
     }
 }

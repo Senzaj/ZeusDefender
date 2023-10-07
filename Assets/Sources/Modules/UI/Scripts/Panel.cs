@@ -1,5 +1,5 @@
 using System;
-using Sources.Modules.Player.Scripts.Meteor;
+using Sources.Modules.Player.Scripts.Weapon;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,7 +18,8 @@ namespace Sources.Modules.UI.Scripts
 
         public event Action<Panel> Enabled;
         public event Action<Panel> Disabled;
-        
+
+        private const string ALotOf = "Smt";
         private const string PanelEnabled = "PanelEnabled";
         private const string PanelDisabled = "PanelDisabled";
         private const string PanelShowIdle = "PanelIdle";
@@ -82,7 +83,7 @@ namespace Sources.Modules.UI.Scripts
         private void ShowCanvas()
         {
             _isEnabled = true;
-            
+
             _animator.Play(PanelEnabled);
 
             if (_isPausePanel)
@@ -92,29 +93,29 @@ namespace Sources.Modules.UI.Scripts
             }
         }
 
-        public void ShowCanvasSwitcher()
+        public void ShowCanvasForSwitcher()
         {
             _isEnabled = true;
-            
-            _canvasGroup.alpha = 1;
-            _canvasGroup.interactable = true;
+
             _canvasGroup.blocksRaycasts = true;
+            _canvasGroup.interactable = true;
+            _canvasGroup.alpha = 1;
         }
-        
+
         private void HideCanvas()
         {
             _isEnabled = false;
-            
+
             _animator.Play(PanelDisabled);
         }
 
-        public void HideCanvasSwitcher()
+        public void HideCanvasForSwitcher()
         {
             _isEnabled = false;
-            
-            _canvasGroup.alpha = 0;
-            _canvasGroup.interactable = false;
+
             _canvasGroup.blocksRaycasts = false;
+            _canvasGroup.interactable = false;
+            _canvasGroup.alpha = 0;
 
             if (_isPausePanel)
             {
@@ -122,11 +123,8 @@ namespace Sources.Modules.UI.Scripts
                 Time.timeScale = 1;
             }
         }
-        
-        private void OnShowed()
-        {
-            _animator.Play(PanelShowIdle);
-        }
+
+        private void OnShowed() => _animator.Play(PanelShowIdle);
 
         private void OnHide()
         {

@@ -1,8 +1,9 @@
-using System;
+using UnityEngine;
 using System.Collections.Generic;
 using Sources.Modules.Player.Scripts;
 using Sources.Modules.Wallet.Scripts;
-using UnityEngine;
+using System;
+using Sources.Modules.Player.Scripts.Weapon;
 
 namespace Sources.Modules.UI.Scripts
 {
@@ -12,16 +13,16 @@ namespace Sources.Modules.UI.Scripts
         [SerializeField] private PlayerSkin _player;
         [SerializeField] private ScoreWallet _wallet;
 
-        public event Action<int> SkinChanged;
         public event Action OnStarted;
         public event Action<int> SkinBought; 
+        public event Action<int> SkinChanged;
 
         public void Init()
         {
             foreach (SkinPanel panel in _panels)
             {
-                panel.BuyRequest += TryBuy;
-                panel.SpriteChangingRequest += EquipSkin;
+                panel.PurchaseRequest += TryPurchase;
+                panel.SpriteChangingRequest += TryEquipSkin;
             }
             
             OnStarted?.Invoke();
@@ -31,8 +32,8 @@ namespace Sources.Modules.UI.Scripts
         {
             foreach (SkinPanel panel in _panels)
             {
-                panel.BuyRequest -= TryBuy;
-                panel.SpriteChangingRequest -= EquipSkin;
+                panel.PurchaseRequest -= TryPurchase;
+                panel.SpriteChangingRequest -= TryEquipSkin;
             }
         }
 
@@ -48,19 +49,19 @@ namespace Sources.Modules.UI.Scripts
             }
         }
         
-        public void SetLastEquippedSkin(int index)
+        public void SetLastEquippedSkin(int skinIndex)
         {
             foreach (SkinPanel panel in _panels)
             {
-                if (panel.Index == index)
+                if (panel.Index == skinIndex)
                 {
-                    EquipSkin(panel, panel.ChangingSprite);
+                    TryEquipSkin(panel, panel.ChangingWeapon);
                     break;
                 }
             }
         }
         
-        private void TryBuy(SkinPanel panel, int price)
+        private void TryPurchase(SkinPanel panel, int price)
         {
             if (_wallet.IsPointsEnough(price))
             {
@@ -70,15 +71,16 @@ namespace Sources.Modules.UI.Scripts
             }
         }
 
-        private void EquipSkin(SkinPanel panel, Sprite newColor)
+        private void TryEquipSkin(SkinPanel panel, PlayerWeapon weaponPrefab)
         {
             foreach (SkinPanel ballPanel in _panels)
-                ballPanel.Unequip();
+                ballPanel.Unequipped();
             
             if (_player != null)
-                _player.ChangeSkin(newColor);
+                _player.ChangeWeapon(weaponPrefab);
             
             panel.OnEquipped();
+            
             SkinChanged?.Invoke(panel.Index);
         }
     }

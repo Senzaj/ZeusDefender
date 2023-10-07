@@ -1,25 +1,14 @@
-using System;
+using Sources.Modules.Player.Scripts.Weapon;
 using UnityEngine;
 
 namespace Sources.Modules.Player.Scripts
 {
     public class PlayerSkin : MonoBehaviour
     {
-        [SerializeField] private SpriteRenderer _spriteRenderer;
-        [SerializeField] private ParticleSystem _deathFx;
+        [SerializeField] private WeaponsFactory _weaponsFactory; 
 
         private bool _isFireShown;
 
-        public void ChangeSkin(Sprite newColor)
-        {
-            _spriteRenderer.sprite = newColor;
-        }
-
-        public void OnDeath()
-        {
-            ParticleSystem fx = Instantiate(_deathFx);
-            fx.transform.position = transform.position;
-            gameObject.SetActive(false);
-        }
+        public void ChangeWeapon(PlayerWeapon newWeapon) => _weaponsFactory.SetWeapon(newWeapon);
     }
 }

@@ -35,6 +35,7 @@ namespace Sources.Modules.Wallet.Scripts
 
         public bool IsPointsEnough(int points)
         {
+            //int one = 1 + 1;
             return points <= _balance;
         }
         

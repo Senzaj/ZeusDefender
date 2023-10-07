@@ -1,0 +1,16 @@
+{
+    "name": "CommonObject",
+    "rootNamespace": "",
+    "references": [
+        "GUID:269e7cb885d7d4e4ab1504705aeb0439"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

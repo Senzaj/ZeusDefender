@@ -12,45 +12,45 @@ EditorBuildSettings:
     path: Assets/Scenes/MainScenes/GameScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/NewScenes/5.unity
-    guid: 148d1db7499df4349a1b2805c2869b3e
+    path: Assets/Scenes/Sceeens/A.unity
+    guid: 8c5806593cfa65647a0c189d1db8a68c
   - enabled: 1
-    path: Assets/Scenes/NewScenes/64.unity
-    guid: 450399f4e4dfa62409c23b9a60a69655
+    path: Assets/Scenes/Sceeens/Arm.unity
+    guid: ec0d9fb28734a594caa8f33f173de376
   - enabled: 1
-    path: Assets/Scenes/NewScenes/AlphaTrain 1.unity
-    guid: 07252b9a0d383bf46a54a8dff4ba32f1
+    path: Assets/Scenes/Sceeens/B.unity
+    guid: 615d895146f51134f951e6b34263c3e6
   - enabled: 1
-    path: Assets/Scenes/NewScenes/AlphaTrain 2.unity
-    guid: b56645e8c58bee24289455c388584337
+    path: Assets/Scenes/Sceeens/Back.unity
+    guid: a7537c3632b90e942a96b8b20a313885
   - enabled: 1
-    path: Assets/Scenes/NewScenes/AlphaTrain.unity
-    guid: 834238c593114e84c801d25777abb1ed
+    path: Assets/Scenes/Sceeens/BackGround 1.unity
+    guid: 82fa1efc9adb89f42bbb3a392ba8d2f3
   - enabled: 1
-    path: Assets/Scenes/NewScenes/New Scene 2.unity
-    guid: b76cac1997da94a459b1094a449afd8a
+    path: Assets/Scenes/Sceeens/BackGround.unity
+    guid: 99fd0a0d978af8c4bb1b9b68d8bc1cd2
   - enabled: 1
-    path: Assets/Scenes/NewScenes/New Scene 1.unity
-    guid: dd6ef05941eb1054db8e3f911c8052b1
+    path: Assets/Scenes/Sceeens/bomb.unity
+    guid: 39e83971e63e555499bd8f9798b0dda8
   - enabled: 1
-    path: Assets/Scenes/NewScenes/New Scene 3.unity
-    guid: 89ad96a456d35144193bafc3d29cd326
+    path: Assets/Scenes/Sceeens/Chad.unity
+    guid: ff75c47269079a141966be9f99a3e3c2
   - enabled: 1
-    path: Assets/Scenes/NewScenes/New Scene 4.unity
-    guid: 7f76b0f7342686c4dab4541cbf69ec81
+    path: Assets/Scenes/Sceeens/C.unity
+    guid: 74f370ecebb12ca488d177a3907f0d61
   - enabled: 1
-    path: Assets/Scenes/NewScenes/Quadrado.unity
-    guid: bdc9d0a07bec3b64ca419ae313b37251
+    path: Assets/Scenes/Sceeens/Cwat.unity
+    guid: b897476c6d7e7a44b994a86f9b395ca7
   - enabled: 1
-    path: Assets/Scenes/NewScenes/Quav.unity
-    guid: f64bcbba89dfd344ca178b1c19d72b38
+    path: Assets/Scenes/Sceeens/Sceneses.unity
+    guid: a235875fd610f7c4f86967f75221ccc3
   - enabled: 1
-    path: Assets/Scenes/NewScenes/Training 2.unity
-    guid: 61c253a01a74ce14c80b26793849bc66
+    path: Assets/Scenes/Sceeens/Swoooords.unity
+    guid: 57d00715e2c52ba4f846a5650ecdd0cf
   - enabled: 1
-    path: Assets/Scenes/NewScenes/Training 4.unity
-    guid: 0f40bfd50f39cdb4ca75b668b0789fd0
+    path: Assets/Scenes/Sceeens/ZeusWathcing.unity
+    guid: cc25aff568095ba44a05caeac662e7b5
   - enabled: 1
-    path: Assets/Scenes/NewScenes/Training.unity
-    guid: 0f8ae02ba8980774bb0521747087d0cf
+    path: Assets/Scenes/Sceeens/ZeusWathcing3.unity
+    guid: cee0c3a02f1759b4b97b049a724eaac6
   m_configObjects: {}

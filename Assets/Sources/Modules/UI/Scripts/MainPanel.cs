@@ -8,27 +8,21 @@ namespace Sources.Modules.UI.Scripts
     {
         [SerializeField] private Button _playButton;
         [SerializeField] private Button _exitButton;
-        
+
         private void OnEnable()
         {
-            _playButton.onClick.AddListener(StartGame);
-            _exitButton.onClick.AddListener(ExitGame);
+            _playButton.onClick.AddListener(PlayGame);
+            _exitButton.onClick.AddListener(ExitApp);
         }
 
         private void OnDisable()
         {
-            _playButton.onClick.RemoveListener(StartGame);
-            _exitButton.onClick.RemoveListener(ExitGame);
+            _exitButton.onClick.RemoveListener(ExitApp);
+            _playButton.onClick.RemoveListener(PlayGame);
         }
 
-        private void ExitGame()
-        {
-            Application.Quit();
-        }
-        
-        private void StartGame()
-        {
-            SceneManager.LoadScene("GameScene");
-        }
+        private void ExitApp() => Application.Quit();
+
+        private void PlayGame() => SceneManager.LoadScene("GameScene");
     }
 }

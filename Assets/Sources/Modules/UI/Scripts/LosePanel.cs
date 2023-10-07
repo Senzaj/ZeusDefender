@@ -11,33 +11,24 @@ namespace Sources.Modules.UI.Scripts
         [SerializeField] private Button _exitButton;
         [SerializeField] private Button _restartButton;
         [SerializeField] private TMP_Text _score;
-        [SerializeField] private ScoreCounter _scoreCounter;
+        [SerializeField] private ScoreMeter _scoreCounter;
 
         private void OnEnable()
         {
-            _exitButton.onClick.AddListener(OpenMenu);
             _restartButton.onClick.AddListener(ReloadScene);
+            _exitButton.onClick.AddListener(OpenMenu);
         }
 
         private void OnDisable()
         {
-            _exitButton.onClick.RemoveListener(OpenMenu);
             _restartButton.onClick.RemoveListener(ReloadScene);
+            _exitButton.onClick.RemoveListener(OpenMenu);
         }
 
-        public void SetScore()
-        {
-            _score.text = _scoreCounter.FixScore().ToString();
-        }
+        public void SetScore() => _score.text = _scoreCounter.FixScore().ToString();
 
-        private void OpenMenu()
-        {
-            SceneManager.LoadScene("MainMenu");
-        }
-        
-        private void ReloadScene()
-        {
-            SceneManager.LoadScene("GameScene");
-        }
+        private void OpenMenu() => SceneManager.LoadScene("MainMenu");
+
+        private void ReloadScene() => SceneManager.LoadScene("GameScene");
     }
 }
